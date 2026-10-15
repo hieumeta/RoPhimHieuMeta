@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+}
+
+def releaseKeystore = file('rophim-release.jks')
+
+android {
+    namespace 'net.rophim.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'net.rophim.app'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    signingConfigs {
+        release {
+            if (releaseKeystore.exists()) {
+                storeFile releaseKeystore
+                storePassword 'rophim2026'
+                keyAlias 'rophim'
+                keyPassword 'rophim2026'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig releaseKeystore.exists() ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.activity:activity:1.9.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+}

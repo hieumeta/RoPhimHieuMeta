@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RoPhim</string>
+    <string name="error_title">Không có kết nối</string>
+    <string name="error_message">Không thể tải trang. Vui lòng kiểm tra Wi-Fi hoặc 4G rồi thử lại.</string>
+    <string name="retry">Thử lại</string>
+    <string name="press_back_again">Nhấn Back lần nữa để thoát</string>
+    <string name="blocked_redirect">Đã chặn chuyển hướng quảng cáo</string>
+</resources>
